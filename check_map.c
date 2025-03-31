@@ -6,7 +6,7 @@
 /*   By: fbenjama <fbenjama@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/28 22:48:32 by fbenjama          #+#    #+#             */
-/*   Updated: 2025/03/29 03:27:38 by fbenjama         ###   ########.fr       */
+/*   Updated: 2025/03/29 03:43:34 by fbenjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,10 @@ int is_rectangle(char **str)
     int a;
     int i = 1;
     int j;
+    int len;
+    len = sizeof(str) / sizeof(str[1][0]);
     a = ft_strlen(str[0]);
-    while (str[i] != NULL)
+    while (i < len)
     {
         j = ft_strlen(str[i]);
         if (j != a)
@@ -78,9 +80,10 @@ int check_character(char *str)
 int main()
 {
     char *str[] = {"111111111","111111111","111111111"};
-    if (is_rectangle(str) == 1)
-        printf("INVALIDE\n");
-    else   
-        printf("VALIDE\n");
+    printf("%s\n", str[3]);
+    // if (is_rectangle(str) == 1)
+    //     printf("INVALIDE\n");
+    // else   
+    //     printf("VALIDE\n");
     return (0);
 }
