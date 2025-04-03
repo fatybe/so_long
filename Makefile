@@ -1,13 +1,14 @@
 CC = cc
-FLAGS = -Wall -Wextra -Werror
+FLAGS = -g -Wall -Wextra -Werror -L /usr/include/minilibx-linux -lmlx -lXext -lX11
 NAME = so_long
 SRCS = so_long.c get_next_line.c libft.c parsing_util.c
 OBJS = $(SRCS:.c=.o)
 
 all : $(NAME)
 
-$(NAME) : $(OBJS)
-	$(CC) $(OBJS) -o $(NAME)
+%.o: %.c
+	$(CC) $(FLAGS) -c $< -o $@
+
 clean :
 	rm -f $(OBJS)
 fclean : clean

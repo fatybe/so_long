@@ -6,7 +6,7 @@
 /*   By: fbenjama <fbenjama@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/30 02:21:12 by fbenjama          #+#    #+#             */
-/*   Updated: 2025/03/30 02:23:47 by fbenjama         ###   ########.fr       */
+/*   Updated: 2025/04/01 21:30:37 by fbenjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,30 @@ void check_name(char **v)
     int len;
     len = ft_strlen(v[1]);
     if (v[1][len - 1] != 'r')
+    {
         write(2, "invalide name\n", 15);
+        exit(1);
+     }   
     else if (v[1][len - 2] != 'e')
+    {
         write(2, "invalide name\n", 15);
+        exit(1);
+     } 
     else if (v[1][len - 3] != 'b')
+    {
         write(2, "invalide name\n", 15);
+        exit(1);
+     } 
     else if (v[1][len - 4] != '.')
+    {
         write(2, "invalide name\n", 15);
+        exit(1);
+     } 
     else if (v[1][len - 5] == '/')
+    {
         write(2, "invalide name\n", 15);
+        exit(1);
+     } 
 }
 char **ft_maps(char **v)
 {

@@ -10,19 +10,32 @@
 # include <stdlib.h>
 # include <string.h>
 # include <unistd.h>
+#include "/usr/include/minilibx-linux/mlx.h"
 
-typedef struct a
+
+typedef struct s_data
 {
-    int p;
-    int e;
+    void *mlx;
+    void *mlx_win;
+    char **str;
+    void *wall_image;
+    void *exit_image;
+    void *player_image;
+    void *collectible_image;
+    void *track_image;
+    int moves;
     int c;
-} t_a;
+    int positionx_p;
+    int positiony_p;
+}t_map1;
 
 typedef struct map
 {
-    int positionx_p;
-    int positiony_p;
+    int p;
+    int e;
     int collectibles;
+    int c;
+    int position_e;
     char **map;
 } t_map;
 //parsing
@@ -39,8 +52,11 @@ char **ft_maps(char **v);
 int is_rectangle(char **map);
 int check_characters(char **map);
 int check_wall(char **map);
-int ft_check(char **m);
-void    check_map(char **m);
-void position_p(char **m, t_map *map);
-
+int ft_check(t_map *a, char **m);
+void    check_map(t_map *a, char **m);
+void position_p(t_map1 *map);
+void load_image(t_map1 *m);
+void full_map(t_map1 *m);
+void load_image(t_map1 *m);
+void print_image(t_map1 *m);
 #endif
