@@ -23,10 +23,13 @@ typedef struct s_data
     void *player_image;
     void *collectible_image;
     void *track_image;
+    void *door_player_image;
     int moves;
     int c;
     int positionx_p;
     int positiony_p;
+    int height;
+    int width;
 }t_map1;
 
 typedef struct map
