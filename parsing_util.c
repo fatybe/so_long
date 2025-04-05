@@ -6,7 +6,7 @@
 /*   By: fbenjama <fbenjama@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/30 02:21:12 by fbenjama          #+#    #+#             */
-/*   Updated: 2025/04/04 17:44:47 by fbenjama         ###   ########.fr       */
+/*   Updated: 2025/04/05 01:39:05 by fbenjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void check_name(char **v)
         exit(1);
      } 
 }
-char **ft_maps(char **v)
+char **ft_maps1(char **v)
 {
     int fd;
     int len = 0;
@@ -56,6 +56,32 @@ char **ft_maps(char **v)
     if (!arr)
         return (NULL);
     fd = open(v[1], O_RDONLY);
+    line = get_next_line(fd);
+    len = 0;
+    while (line)
+    {
+        arr[len] = line;
+        len++;
+        line = get_next_line(fd);
+    }
+    arr[len] = 0;
+    close (fd);
+    return (arr);
+}
+char **ft_maps2(char **s)
+{
+    int fd;
+    int len = 0;
+    char **arr;
+    char *line;
+    fd = open(s[1], O_RDONLY);
+    while ((get_next_line(fd)))
+        len++;
+    close (fd);
+    arr = malloc((len + 1) * sizeof(char *));
+    if (!arr)
+        return (NULL);
+    fd = open(s[1], O_RDONLY);
     line = get_next_line(fd);
     len = 0;
     while (line)
@@ -114,7 +140,7 @@ int check_wall(char **map)
         i++;
     }
     i = 1;
-    while (i < len)
+    while (i < len - 1)
     {
         if (map[i][0] != '1' || map[i][lens - 1] != '1')
             return (1);

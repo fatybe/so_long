@@ -37,7 +37,6 @@ typedef struct map
     int p;
     int e;
     int collectibles;
-    int c;
     int position_e;
     char **map;
 } t_map;
@@ -51,7 +50,8 @@ char	*next_line(char *buffer);
 char	*update(char *s);
 char	*get_next_line(int fd);
 void check_name(char **v);
-char **ft_maps(char **v);
+char **ft_maps1(char **v);
+char **ft_maps2(char **s);
 int is_rectangle(char **map);
 int check_characters(char **map);
 int check_wall(char **map);
@@ -62,4 +62,17 @@ void load_image(t_map1 *m);
 void full_map(t_map1 *m);
 void load_image(t_map1 *m);
 void print_image(t_map1 *m);
+void validate_inpute(t_map *m, int x, int y, int total_collectible);
+void flood_fill(t_map *m, int x, int y);
+void full_map(t_map1 *m);
+void load_image(t_map1 *m);
+void print_image(t_map1 *m);
+int ft_handler (int key_code, t_map1 *map);
+void to_right(t_map1 *m);
+void to_left(t_map1 *m);
+void to_up(t_map1 *m);
+void to_down(t_map1 *m);
+void free_arr(char **m);
+int ft_distroy(void *param);
+
 #endif
