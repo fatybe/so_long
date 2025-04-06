@@ -6,42 +6,13 @@
 /*   By: fbenjama <fbenjama@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/30 02:21:12 by fbenjama          #+#    #+#             */
-/*   Updated: 2025/04/05 01:39:05 by fbenjama         ###   ########.fr       */
+/*   Updated: 2025/04/06 04:09:50 by fbenjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void check_name(char **v)
-{
-    int len;
-    len = ft_strlen(v[1]);
-    if (v[1][len - 1] != 'r')
-    {
-        write(2, "invalide name\n", 15);
-        exit(1);
-     }   
-    else if (v[1][len - 2] != 'e')
-    {
-        write(2, "invalide name\n", 15);
-        exit(1);
-     } 
-    else if (v[1][len - 3] != 'b')
-    {
-        write(2, "invalide name\n", 15);
-        exit(1);
-     } 
-    else if (v[1][len - 4] != '.')
-    {
-        write(2, "invalide name\n", 15);
-        exit(1);
-     } 
-    else if (v[1][len - 5] == '/')
-    {
-        write(2, "invalide name\n", 15);
-        exit(1);
-     } 
-}
+
 char **ft_maps1(char **v)
 {
     int fd;
@@ -72,6 +43,7 @@ char **ft_maps2(char **s)
 {
     int fd;
     int len = 0;
+
     char **arr;
     char *line;
     fd = open(s[1], O_RDONLY);
@@ -88,6 +60,7 @@ char **ft_maps2(char **s)
     {
         arr[len] = line;
         len++;
+        free(line);
         line = get_next_line(fd);
     }
     arr[len] = 0;
@@ -129,7 +102,7 @@ int check_wall(char **map)
 {
     int len = 0;
     int i = 0;
-    int j;
+    
     int lens = ft_strlen(map[0]);
     while (map[len])
         len++;

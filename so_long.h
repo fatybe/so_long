@@ -10,7 +10,7 @@
 # include <stdlib.h>
 # include <string.h>
 # include <unistd.h>
-#include "/usr/include/minilibx-linux/mlx.h"
+#include "/usr/include/minilibx-linux/minilibx-linux/mlx.h"
 
 
 typedef struct s_data
@@ -41,7 +41,7 @@ typedef struct map
     char **map;
 } t_map;
 //parsing
-size_t	ft_strlen(char *s);
+int	ft_strlen(char *s);
 char	*ft_strchr(char *s, int c);
 char	*ft_strdup(char *s);
 char	*ft_strjoin(char *s1, char *s2);
@@ -62,7 +62,7 @@ void load_image(t_map1 *m);
 void full_map(t_map1 *m);
 void load_image(t_map1 *m);
 void print_image(t_map1 *m);
-void validate_inpute(t_map *m, int x, int y, int total_collectible);
+void validate_inpute(t_map *m, int x, int y);
 void flood_fill(t_map *m, int x, int y);
 void full_map(t_map1 *m);
 void load_image(t_map1 *m);
@@ -72,7 +72,11 @@ void to_right(t_map1 *m);
 void to_left(t_map1 *m);
 void to_up(t_map1 *m);
 void to_down(t_map1 *m);
+void    ft_util(char c, t_map *a);
 void free_arr(char **m);
+void ft_initialize(t_map1 *m);
 int ft_distroy(void *param);
-
+void ft_error(void);
+void ft_parsing (char **v, t_map1 *map1);
+void ft_print(t_map1 *m);
 #endif

@@ -6,7 +6,7 @@
 /*   By: fbenjama <fbenjama@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/05 01:01:17 by fbenjama          #+#    #+#             */
-/*   Updated: 2025/04/05 01:02:47 by fbenjama         ###   ########.fr       */
+/*   Updated: 2025/04/06 00:52:44 by fbenjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,13 +59,8 @@ void position_p(t_map1 *map)
 {
     int i;
     int j;
-     
-    map->positionx_p = 0;
-    map->positiony_p = 0;
-    map->c = 0;
+
     i = 0;
-    map->height = 0;
-    map->width = 0;
     while (map->str[i])
     {
         j = 0;
