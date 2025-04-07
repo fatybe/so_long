@@ -6,7 +6,7 @@
 /*   By: fbenjama <fbenjama@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/30 02:21:12 by fbenjama          #+#    #+#             */
-/*   Updated: 2025/04/06 04:09:50 by fbenjama         ###   ########.fr       */
+/*   Updated: 2025/04/06 23:05:30 by fbenjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,14 @@ char **ft_maps1(char **v)
     char **arr;
     char *line;
     fd = open(v[1], O_RDONLY);
-    while ((get_next_line(fd)))
+    char *k = get_next_line(fd);
+    while (k)
+    {
         len++;
+        free(k);
+        k = get_next_line(fd);
+    }
+        
     close (fd);
     arr = malloc((len + 1) * sizeof(char *));
     if (!arr)
@@ -43,12 +49,19 @@ char **ft_maps2(char **s)
 {
     int fd;
     int len = 0;
+    char *k;
 
     char **arr;
     char *line;
     fd = open(s[1], O_RDONLY);
-    while ((get_next_line(fd)))
+    k = get_next_line(fd);
+    while (k)
+    {
         len++;
+        free(k);
+        k = get_next_line(fd);
+    }
+        
     close (fd);
     arr = malloc((len + 1) * sizeof(char *));
     if (!arr)
@@ -60,7 +73,6 @@ char **ft_maps2(char **s)
     {
         arr[len] = line;
         len++;
-        free(line);
         line = get_next_line(fd);
     }
     arr[len] = 0;

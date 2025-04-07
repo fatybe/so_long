@@ -6,7 +6,7 @@
 /*   By: fbenjama <fbenjama@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/06 00:24:01 by fbenjama          #+#    #+#             */
-/*   Updated: 2025/04/06 03:59:37 by fbenjama         ###   ########.fr       */
+/*   Updated: 2025/04/07 00:27:15 by fbenjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ void ft_print(t_map1 *m)
 }
 void to_right(t_map1 *m)
 {
+    void *s;
     ft_print(m);
     int i = m->positionx_p;
     int j = m->positiony_p;
@@ -39,11 +40,14 @@ void to_right(t_map1 *m)
     if (m->str[i][j + 1] == 'E')
     {
         if (m->c == 0)
-            exit(0);
+        {
+            ft_distroy(s);
+        }
     }
 }
 void to_left(t_map1 *m)
 {
+    void *s;
     ft_print(m);
     int i = m->positionx_p;
     int j = m->positiony_p;
@@ -63,11 +67,14 @@ void to_left(t_map1 *m)
     if(m->str[i][j - 1] == 'E')
     {
         if (m->c == 0)
-            exit(0);
+        {
+            ft_distroy(s);
+        }
     }
 }
 void to_up(t_map1 *m)
 {
+    void *s;
     ft_print(m);
     int i = m->positionx_p;
     int j = m->positiony_p;
@@ -87,11 +94,14 @@ void to_up(t_map1 *m)
     if (m->str[i - 1][j] == 'E')
     {
         if (m->c == 0)
-            exit(0);
+        {
+            ft_distroy(s);
+        }
     }
 }
 void to_down(t_map1 *m)
 {
+    void *s;
     ft_print(m);
     int i = m->positionx_p;
     int j = m->positiony_p;
@@ -111,11 +121,15 @@ void to_down(t_map1 *m)
     if (m->str[i + 1][j] == 'E')
     {
         if (m->c == 0)
-            exit(0);
+        {
+            ft_distroy(s);
+        }
+            
     }
 }
 int ft_handler (int key_code, t_map1 *map)
 {
+    void *s;
     // map->moves = 0;
     if (key_code == 100)
         to_right(map);
@@ -126,7 +140,9 @@ int ft_handler (int key_code, t_map1 *map)
     if (key_code == 115)
         to_down(map);
     if (key_code == 65307)
-        exit(0);
+    {
+        ft_distroy(s);
+    }
         
     print_image(map);
     return (0);

@@ -6,7 +6,7 @@
 /*   By: fbenjama <fbenjama@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/05 01:01:17 by fbenjama          #+#    #+#             */
-/*   Updated: 2025/04/06 00:52:44 by fbenjama         ###   ########.fr       */
+/*   Updated: 2025/04/06 23:31:44 by fbenjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void    ft_util(char c, t_map *a)
     if (c == 'C')
         a->collectibles++;
 }
-int ft_check(t_map *a, char **m)
+int ft_check(t_map *a)
 {
     int i;
     int j;
@@ -30,12 +30,12 @@ int ft_check(t_map *a, char **m)
     a->p = 0;
     a->e = 0;
     a->collectibles = 0;
-    while (m[i])
+    while (a->map[i])
     {
         j = 0;
-        while (m[i][j])
+        while (a->map[i][j])
         {
-            ft_util(m[i][j], a);
+            ft_util(a->map[i][j], a);
             j++;
         }
         i++;
@@ -44,16 +44,23 @@ int ft_check(t_map *a, char **m)
         return (1);
     return (0);
 }
-void    check_map(t_map *map, char **m)
+void parsing_error(t_map *map, t_map1 *m)
 {
-    if (is_rectangle(m) == 1)
-        write(2, "invalide map\n", 14);
-    if (check_characters(m) == 1)
-        write(2, "invalide map\n", 14);
-    if (check_wall(m) == 1)
-        write(2, "invalide map\n", 14);
-    if (ft_check(map, m) == 1)
-        write(2, "invalide map\n", 14);
+    write(2, "invalide map\n", 14);
+    free_arr(map->map);
+    free_arr(m->str);
+    exit(0);
+}
+void    check_map(t_map *map, t_map1 *m)
+{
+    if (is_rectangle(map->map) == 1)
+        parsing_error(map, m);
+    if (check_characters(map->map) == 1)
+        parsing_error(map, m);
+    if (check_wall(map->map) == 1)
+        parsing_error(map, m);
+    if (ft_check(map) == 1)
+        parsing_error(map, m);
 }
 void position_p(t_map1 *map)
 {

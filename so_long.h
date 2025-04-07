@@ -55,14 +55,14 @@ char **ft_maps2(char **s);
 int is_rectangle(char **map);
 int check_characters(char **map);
 int check_wall(char **map);
-int ft_check(t_map *a, char **m);
-void    check_map(t_map *a, char **m);
+int ft_check(t_map *a);
+void    check_map(t_map *map, t_map1 *m);
 void position_p(t_map1 *map);
 void load_image(t_map1 *m);
 void full_map(t_map1 *m);
 void load_image(t_map1 *m);
 void print_image(t_map1 *m);
-void validate_inpute(t_map *m, int x, int y);
+int validate_inpute(t_map *m, int x, int y);
 void flood_fill(t_map *m, int x, int y);
 void full_map(t_map1 *m);
 void load_image(t_map1 *m);
@@ -79,4 +79,7 @@ int ft_distroy(void *param);
 void ft_error(void);
 void ft_parsing (char **v, t_map1 *map1);
 void ft_print(t_map1 *m);
+void parsing_error(t_map *map, t_map1 *m);
+void ft_mlx_function(t_map1 *map1);
+
 #endif
