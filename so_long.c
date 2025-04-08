@@ -18,16 +18,16 @@ int	main(int c, char **v)
 	t_map1	map1;
 	char	**m;
 	char	**m2;
+	int		i;
 
 	(void)c;
 	check_name(v);
 	m = ft_maps1(v);
 	m2 = ft_maps2(v);
-	
 	ft_initialize(&map1);
 	map.map = m2;
 	map1.str = m;
-	int i = 0;
+	i = 0;
 	while (map.map[i])
 	{
 		printf("%s", map.map[i]);

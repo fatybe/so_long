@@ -6,7 +6,7 @@
 /*   By: fbenjama <fbenjama@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 21:39:59 by fbenjama          #+#    #+#             */
-/*   Updated: 2025/04/08 18:22:50 by fbenjama         ###   ########.fr       */
+/*   Updated: 2025/04/08 18:50:50 by fbenjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,5 +100,5 @@ void		ft_print_image(t_map1 *m, int i, int j);
 int			find_size(char **v);
 char		**full_arr_with_newline(char **v);
 void		check_newline(char **v);
-
+int			find_size1(char **v);
 #endif

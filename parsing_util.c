@@ -6,29 +6,54 @@
 /*   By: fbenjama <fbenjama@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/30 02:21:12 by fbenjama          #+#    #+#             */
-/*   Updated: 2025/04/08 01:42:18 by fbenjama         ###   ########.fr       */
+/*   Updated: 2025/04/08 18:53:19 by fbenjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-// int	find_size(char **v)
-// {
-// 	int		fd;
-// 	char	*line;
-// 	int		len;
+int	find_size(char **v)
+{
+	int		fd;
+	char	*line;
+	int		len;
 
-// 	fd = open(v[1], O_RDONLY);
-// 	line = get_next_line(fd);
-// 	while (line)
-// 	{
-// 		len++;
-// 		free(line);
-// 		line = get_next_line(fd);
-// 	}
-// 	close(fd);
-// 	return (len);
-// }
+	fd = open(v[1], O_RDONLY);
+	line = get_next_line(fd);
+	len = 0;
+	if (!line)
+	{
+		printf("Empty map\n");
+		exit(1);
+	}
+	while (line)
+	{
+		len++;
+		free(line);
+		line = get_next_line(fd);
+	}
+	close(fd);
+	return (len);
+}
+
+int	find_size1(char **v)
+{
+	int		fd;
+	char	*line;
+	int		len;
+
+	fd = open(v[1], O_RDONLY);
+	line = get_next_line2(fd);
+	len = 0;
+	while (line)
+	{
+		len++;
+		free(line);
+		line = get_next_line2(fd);
+	}
+	close(fd);
+	return (len);
+}
 
 int	is_rectangle(char **map)
 {
@@ -59,8 +84,8 @@ int	check_characters(char **map)
 		j = 0;
 		while (map[i][j])
 		{
-			if (map[i][j] != '1' && map[i][j] != '0'
-				&& map[i][j] != 'P' && map[i][j] != 'C' && map[i][j] != 'E')
+			if (map[i][j] != '1' && map[i][j] != '0' && map[i][j] != 'P'
+				&& map[i][j] != 'C' && map[i][j] != 'E')
 				return (1);
 			j++;
 		}

@@ -6,7 +6,7 @@
 /*   By: fbenjama <fbenjama@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/05 01:01:17 by fbenjama          #+#    #+#             */
-/*   Updated: 2025/04/08 01:36:57 by fbenjama         ###   ########.fr       */
+/*   Updated: 2025/04/08 18:57:00 by fbenjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,9 +101,4 @@ void	position_p(t_map1 *map)
 	}
 	map->height = j;
 	map->width = i;
-	if (map->height > 50 || map->width > 50 )
-	{
-		printf("map too large\n");
-		exit(1);
-	}
 }

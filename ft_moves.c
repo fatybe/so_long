@@ -32,10 +32,9 @@ void	to_right(t_map1 *m)
 		if (m->str[i][j + 1] == 'C')
 			m->c--;
 	}
-		m->str[i][j] = '0';
-		m->str[i][j + 1] = 'P';
-		m->positiony_p++;
-		
+	m->str[i][j] = '0';
+	m->str[i][j + 1] = 'P';
+	m->positiony_p++;
 	if (m->str[i][j + 1] == 'E')
 	{
 		if (m->c == 0)
@@ -62,7 +61,6 @@ void	to_left(t_map1 *m)
 		m->str[i][j] = '0';
 		m->str[i][j - 1] = 'P';
 		m->positiony_p--;
-		
 	}
 	if (m->str[i][j - 1] == 'E')
 	{
@@ -90,7 +88,6 @@ void	to_up(t_map1 *m)
 		m->str[i][j] = '0';
 		m->str[i - 1][j] = 'P';
 		m->positionx_p--;
-		
 	}
 	if (m->str[i - 1][j] == 'E')
 	{
@@ -118,7 +115,6 @@ void	to_down(t_map1 *m)
 		m->str[i][j] = '0';
 		m->str[i + 1][j] = 'P';
 		m->positionx_p++;
-		
 	}
 	if (m->str[i + 1][j] == 'E')
 	{

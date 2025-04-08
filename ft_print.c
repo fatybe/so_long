@@ -23,17 +23,12 @@ void	load_image(t_map1 *m)
 	int	width;
 	int	height;
 
-	m->p_i = mlx_xpm_file_to_image(m->mlx,
-			"images/player.xpm", &width,
+	m->p_i = mlx_xpm_file_to_image(m->mlx, "images/player.xpm", &width,
 			&height);
-	m->t_i = mlx_xpm_file_to_image(m->mlx,
-			"images/track.xpm", &width, &height);
-	m->w_i = mlx_xpm_file_to_image(m->mlx,
-			"images/water.xpm", &width, &height);
-	m->e_i = mlx_xpm_file_to_image(m->mlx,
-			"images/door.xpm", &width, &height);
-	m->c_i = mlx_xpm_file_to_image(m->mlx,
-			"images/collectible.xpm", &width,
+	m->t_i = mlx_xpm_file_to_image(m->mlx, "images/track.xpm", &width, &height);
+	m->w_i = mlx_xpm_file_to_image(m->mlx, "images/water.xpm", &width, &height);
+	m->e_i = mlx_xpm_file_to_image(m->mlx, "images/door.xpm", &width, &height);
+	m->c_i = mlx_xpm_file_to_image(m->mlx, "images/collectible.xpm", &width,
 			&height);
 }
 
