@@ -6,7 +6,7 @@
 /*   By: fbenjama <fbenjama@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 15:22:08 by fbenjama          #+#    #+#             */
-/*   Updated: 2025/03/30 01:13:40 by fbenjama         ###   ########.fr       */
+/*   Updated: 2025/04/08 02:21:25 by fbenjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,8 @@ char	*next_line(char *buffer)
 		return (ft_strdup(buffer));
 	while (buffer[i] && buffer[i] != '\n')
 		i++;
+	if (buffer[i + 1] == '\n')
+		return (NULL);
 	str = malloc(i + 1);
 	if (!str)
 		return (NULL);
