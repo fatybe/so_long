@@ -6,7 +6,7 @@
 /*   By: fbenjama <fbenjama@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 21:51:04 by fbenjama          #+#    #+#             */
-/*   Updated: 2025/04/08 02:22:17 by fbenjama         ###   ########.fr       */
+/*   Updated: 2025/04/08 15:03:43 by fbenjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,11 +38,11 @@ char **ft_maps1(char **v)
     char *k;
     fd = open(v[1], O_RDONLY);
     k = get_next_line(fd);
-    if (k)
-    {
-        printf("Empty map\n");
-        exit(1);        
-    }
+    // if (k)
+    // {
+    //     printf("Empty map\n");
+    //     exit(1);        
+    // }
     if (!k)
     {
         printf("Empty map\n");
