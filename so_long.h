@@ -6,7 +6,7 @@
 /*   By: fbenjama <fbenjama@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 21:39:59 by fbenjama          #+#    #+#             */
-/*   Updated: 2025/04/07 22:48:38 by fbenjama         ###   ########.fr       */
+/*   Updated: 2025/04/08 18:22:50 by fbenjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,10 @@ char		*readfd(int fd, char *buffer1);
 char		*next_line(char *buffer);
 char		*update(char *s);
 char		*get_next_line(int fd);
+char	*get_next_line2(int fd);
+char	*update2(char *s);
+char	*next_line2(char *buffer);
+char	*readfd2(int fd, char *buffer1);
 void		check_name(char **v);
 char		**ft_maps1(char **v);
 char		**ft_maps2(char **s);
@@ -94,5 +98,7 @@ void		ft_mlx_function(t_map1 *map1);
 void		ft_free_all(t_map1 *map);
 void		ft_print_image(t_map1 *m, int i, int j);
 int			find_size(char **v);
+char		**full_arr_with_newline(char **v);
+void		check_newline(char **v);
 
 #endif

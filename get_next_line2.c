@@ -1,18 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line2.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fbenjama <fbenjama@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/02 15:22:08 by fbenjama          #+#    #+#             */
-/*   Updated: 2025/04/08 18:04:26 by fbenjama         ###   ########.fr       */
+/*   Created: 2025/04/08 18:01:41 by fbenjama          #+#    #+#             */
+/*   Updated: 2025/04/08 18:12:31 by fbenjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+
 #include "so_long.h"
 
-char	*readfd(int fd, char *buffer1)
+char	*readfd2(int fd, char *buffer1)
 {
 	ssize_t	n;
 	char	*buffer;
@@ -39,7 +40,7 @@ char	*readfd(int fd, char *buffer1)
 	return (buffer1);
 }
 
-char	*next_line(char *buffer)
+char	*next_line2(char *buffer)
 {
 	int		i;
 	int		j;
@@ -51,7 +52,7 @@ char	*next_line(char *buffer)
 		return (ft_strdup(buffer));
 	while (buffer[i] && buffer[i] != '\n')
 		i++;
-	str = malloc(i + 1);
+	str = malloc(i + 2);
 	if (!str)
 		return (NULL);
 	while (j < i)
@@ -59,11 +60,12 @@ char	*next_line(char *buffer)
 		str[j] = buffer[j];
 		j++;
 	}
+	str[j++] = '\n';
 	str[j++] = '\0';
 	return (str);
 }
 
-char	*update(char *s)
+char	*update2(char *s)
 {
 	int		i;
 	int		j;
@@ -90,17 +92,17 @@ char	*update(char *s)
 	return (new_str);
 }
 
-char	*get_next_line(int fd)
+char	*get_next_line2(int fd)
 {
 	static char	*s;
 	char		*str;
 
 	if (fd < 0)
 		return (NULL);
-	s = readfd(fd, s);
+	s = readfd2(fd, s);
 	if (!s)
 		return (NULL);
-	str = next_line(s);
+	str = next_line2(s);
 	if (str[0] == 0)
 	{
 		free(str);
@@ -108,7 +110,6 @@ char	*get_next_line(int fd)
 		s = NULL;
 		return (NULL);
 	}
-	s = update(s);
+	s = update2(s);
 	return (str);
 }
-
