@@ -1,0 +1,18 @@
+{
+	"folders": [
+		{
+			"path": "../ss"
+		},
+		{
+			"path": "../gnl"
+		},
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"files.associations": {
+			"so_long.h": "c"
+		}
+	}
+}

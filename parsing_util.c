@@ -6,7 +6,7 @@
 /*   By: fbenjama <fbenjama@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/30 02:21:12 by fbenjama          #+#    #+#             */
-/*   Updated: 2025/04/08 19:40:29 by fbenjama         ###   ########.fr       */
+/*   Updated: 2025/04/09 14:40:47 by fbenjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,11 @@ int	find_size1(char **v)
 	int		len;
 
 	fd = open(v[1], O_RDONLY);
+	if (fd < 0)
+	{
+		write(2, "invalide file!!\n", 16);
+		exit(1);
+	}
 	line = get_next_line2(fd);
 	len = 0;
 	while (line)

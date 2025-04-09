@@ -6,7 +6,7 @@
 /*   By: fbenjama <fbenjama@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/06 23:37:11 by fbenjama          #+#    #+#             */
-/*   Updated: 2025/04/09 01:41:21 by fbenjama         ###   ########.fr       */
+/*   Updated: 2025/04/09 14:46:36 by fbenjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,11 @@ void	ft_mlx_function(t_map1 *map1)
 	s = NULL;
 	map1->mlx = mlx_init();
 	if (!map1->mlx)
-		ft_distroy(s);
+		{
+			write(2, "ERROR\n", 6);
+			free_arr(map1->str);
+			exit(1);
+		}
 	map1->mlx_win = mlx_new_window(map1->mlx, map1->height * 64, map1->width
 			* 64, "so_long");
 	if (!map1->mlx_win)

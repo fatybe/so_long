@@ -6,7 +6,7 @@
 /*   By: fbenjama <fbenjama@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/06 00:28:05 by fbenjama          #+#    #+#             */
-/*   Updated: 2025/04/09 01:13:42 by fbenjama         ###   ########.fr       */
+/*   Updated: 2025/04/09 14:43:42 by fbenjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ int	ft_distroy(void *param)
 	t_map1	*map;
 
 	map = (t_map1 *)param;
-	if (map->mlx)
+	if (map->w_i)
 		mlx_destroy_image(map->mlx, map->w_i);
 	if (map->e_i)
 		mlx_destroy_image(map->mlx, map->e_i);
