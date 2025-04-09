@@ -6,7 +6,7 @@
 /*   By: fbenjama <fbenjama@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/06 00:28:05 by fbenjama          #+#    #+#             */
-/*   Updated: 2025/04/07 22:04:55 by fbenjama         ###   ########.fr       */
+/*   Updated: 2025/04/09 01:13:42 by fbenjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,16 @@ int	validate_inpute(t_map *m, int x, int y)
 {
 	m->position_e = 0;
 	flood_fill(m, x, y);
-	if (m->position_e == 0 || m->collectibles > 0)
+	if (m->position_e == 1 && m->collectibles > 0)
+	{
+		write(2, "collectibles not found!!\n", 25);
 		return (1);
+	}
+	if (m->position_e == 0)
+	{
+		write(2, "exit not found!!\n", 17);
+		return (1);
+	}
 	return (0);
 }
 
@@ -57,7 +65,7 @@ void	free_arr(char **m)
 
 void	ft_free_all(t_map1 *map)
 {
-	if (map->mlx)
+	if (map->w_i)
 		mlx_destroy_image(map->mlx, map->w_i);
 	if (map->e_i)
 		mlx_destroy_image(map->mlx, map->e_i);

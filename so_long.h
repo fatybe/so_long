@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fbenjama <fbenjama@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: fbenjama <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/07 21:39:59 by fbenjama          #+#    #+#             */
-/*   Updated: 2025/04/08 18:50:50 by fbenjama         ###   ########.fr       */
+/*   Created: 2025/04/09 01:16:38 by fbenjama          #+#    #+#             */
+/*   Updated: 2025/04/09 01:20:25 by fbenjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG
-# define SO_LONG
+#ifndef SO_LONG_H
+# define SO_LONG_H
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 10
@@ -19,7 +19,6 @@
 
 # include "/usr/include/minilibx-linux/minilibx-linux/mlx.h"
 # include <fcntl.h>
-# include <stdio.h>
 # include <stdlib.h>
 # include <string.h>
 # include <unistd.h>
@@ -59,10 +58,10 @@ char		*readfd(int fd, char *buffer1);
 char		*next_line(char *buffer);
 char		*update(char *s);
 char		*get_next_line(int fd);
-char	*get_next_line2(int fd);
-char	*update2(char *s);
-char	*next_line2(char *buffer);
-char	*readfd2(int fd, char *buffer1);
+char		*get_next_line2(int fd);
+char		*update2(char *s);
+char		*next_line2(char *buffer);
+char		*readfd2(int fd, char *buffer1);
 void		check_name(char **v);
 char		**ft_maps1(char **v);
 char		**ft_maps2(char **s);
@@ -101,4 +100,7 @@ int			find_size(char **v);
 char		**full_arr_with_newline(char **v);
 void		check_newline(char **v);
 int			find_size1(char **v);
+void		ft_putchar(char c);
+void		putnbr(int n);
+
 #endif

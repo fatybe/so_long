@@ -6,7 +6,7 @@
 /*   By: fbenjama <fbenjama@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/05 01:01:17 by fbenjama          #+#    #+#             */
-/*   Updated: 2025/04/08 18:57:00 by fbenjama         ###   ########.fr       */
+/*   Updated: 2025/04/08 19:28:58 by fbenjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,6 @@ int	ft_check(t_map *a)
 
 void	parsing_error(t_map *map, t_map1 *m)
 {
-	write(2, "invalide map\n", 14);
 	free_arr(map->map);
 	free_arr(m->str);
 	exit(0);
@@ -58,21 +57,27 @@ void	check_map(t_map *map, t_map1 *m)
 {
 	if (is_rectangle(map->map) == 1)
 	{
-		printf("hi0\n");
+		write(2, "map must be rectangle !!\n", 25);
 		parsing_error(map, m);
 	}
 	if (check_characters(map->map) == 1)
 	{
-		printf("hi2\n");
+		write(2, "just P,C,E,1 AND 0 are allowed! \n", 33);
 		parsing_error(map, m);
 	}
 	if (check_wall(map->map) == 1)
 	{
-		printf("hi1\n");
+		write(2, "Wall runs the 1s !\n", 19);
 		parsing_error(map, m);
 	}
 	if (ft_check(map) == 1)
 	{
+		if (map->collectibles < 1)
+			write(2, "no collectibles found!! \n", 26);
+		if (map->e == 0)
+			write(2, "no exit found!! \n", 17);
+		if (map->p == 0)
+			write(2, "no player found\n", 16);
 		parsing_error(map, m);
 	}
 }

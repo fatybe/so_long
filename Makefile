@@ -1,19 +1,14 @@
 CC = cc
 MLXDIR = -L/usr/include/minilibx-linux
-CFLAGS = -g -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror
 MLXFLAGS = $(MLXDIR) -lmlx -lXext -lX11
 NAME = so_long
-SRCS = so_long.c get_next_line.c libft.c parsing_util.c ft_errors.c ft_moves.c ft_print.c parsing_util1.c parsing_utils2.c
-
-OBJS = $(SRCS:.c=.o)
+SRCS = ft_errors.c ft_moves.c ft_moves1.c ft_print.c get_next_line.c get_next_line2.c libft.c mlx_fun.c parsing_util.c parsing_util1.c parsing_utils2.c so_long.c
 
 all : $(NAME)
 
-$(NAME) : $(OBJS)
-	$(CC) $(CFLAGS) $(MLXFLAGS) $(OBJS) -o $(NAME)
-
-%.o: %.c
-	$(CC) $(FLAGS) -c $< -o $@
+$(NAME) : $(SRCS)
+	$(CC) $(CFLAGS) $(SRCS) $(MLXFLAGS) -o $(NAME)
 
 clean :
 	rm -f $(OBJS)

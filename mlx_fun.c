@@ -6,16 +6,29 @@
 /*   By: fbenjama <fbenjama@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/06 23:37:11 by fbenjama          #+#    #+#             */
-/*   Updated: 2025/04/07 21:45:07 by fbenjama         ###   ########.fr       */
+/*   Updated: 2025/04/09 01:41:21 by fbenjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
+void	ft_putchar(char c)
+{
+	write (1, &c, 1);
+}
+
+void	putnbr(int n)
+{
+	if (n > 9)
+		putnbr(n / 10);
+	ft_putchar((n % 10) + 48);
+}
+
 void	ft_mlx_function(t_map1 *map1)
 {
 	void	*s;
 
+	s = NULL;
 	map1->mlx = mlx_init();
 	if (!map1->mlx)
 		ft_distroy(s);

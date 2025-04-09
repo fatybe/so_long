@@ -6,7 +6,7 @@
 /*   By: fbenjama <fbenjama@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 21:51:04 by fbenjama          #+#    #+#             */
-/*   Updated: 2025/04/08 18:58:46 by fbenjama         ###   ########.fr       */
+/*   Updated: 2025/04/09 01:40:27 by fbenjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 
 int	ft_handler(int key_code, t_map1 *map)
 {
-	void	*s;
-
 	if (key_code == 100)
 		to_right(map);
 	if (key_code == 97)
@@ -72,7 +70,7 @@ void	check_newline(char **v)
 			if (arr[i][0] == '\n')
 			{
 				free_arr(arr);
-				printf("invalide map newlinw !! \n");
+				write(2, "empty line in map!!\n", 20);
 				exit(1);
 			}
 			j++;
@@ -114,7 +112,6 @@ char	**ft_maps2(char **s)
 	int		len;
 	char	**arr;
 	char	*line;
-	char	*k;
 
 	len = find_size(s);
 	arr = malloc((len + 1) * sizeof(char *));

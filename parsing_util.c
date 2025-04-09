@@ -6,7 +6,7 @@
 /*   By: fbenjama <fbenjama@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/30 02:21:12 by fbenjama          #+#    #+#             */
-/*   Updated: 2025/04/08 18:53:19 by fbenjama         ###   ########.fr       */
+/*   Updated: 2025/04/08 19:40:29 by fbenjama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	find_size(char **v)
 	len = 0;
 	if (!line)
 	{
-		printf("Empty map\n");
+		write (2, "Empty map\n", 10);
 		exit(1);
 	}
 	while (line)
@@ -61,11 +61,9 @@ int	is_rectangle(char **map)
 	int	i;
 
 	len = ft_strlen(map[0]);
-	printf("len is %d\n", len);
 	i = 1;
 	while (map[i])
 	{
-		printf(" nn : %d\n", ft_strlen(map[i]));
 		if (ft_strlen(map[i]) != len)
 			return (1);
 		i++;
